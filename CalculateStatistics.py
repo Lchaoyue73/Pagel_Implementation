@@ -20,7 +20,7 @@ def GetPairProfiles(gene1, gene2, fullProfile, tree, write=False):
     # get the profile and filenames
     pairProfile = fullProfile.ix[[gene1, gene2], subGenomes]
     pairProfile = pairProfile.transpose()
-    filename = 'pairProfile_' + str(gene1) + '_' + str(gene2) + '_' + '.txt'
+    filename = 'pairProfile_' + str(gene1) + '_' + str(gene2) + '.txt'
     if write:
         pairProfile.to_csv(filename, sep='\t', header=False, index=True)
     return filename
@@ -29,8 +29,8 @@ def GetPairProfiles(gene1, gene2, fullProfile, tree, write=False):
 # Calculate the likelihood for a pair by calling Bayestraits
 def RunPagelPair(treeName, pairfilename, commandN):
     commandfile = 'commandfile' + str(commandN) + '.txt'
-    logfile = pairfilename + '.log.txt'
-    subprocess.call(["./BayesTraitsV2", treeName, pairfilename],
+    logfile = pairfilename + '.Log.txt'
+    subprocess.call(["./BayesTraitsV3", treeName, pairfilename],
                     stdin=open(commandfile, 'r'), shell=False)
     with open(logfile, 'r') as f:
             for line in f:

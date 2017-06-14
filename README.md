@@ -53,7 +53,7 @@ The command files are used to contain the commands of Bayestraits to run. Two de
 
 - e.g.
 
-	python CalculateStatistics.py -t test_tree.trees -m test_profile.csv
+	python CalculateStatistics.py -t ./test/tree.trees -m ./test/profile.csv
 
 
 - output: LR_outputs.txt with columns: gene1, gene2, indepdent, dependent and likelihood ratio.
